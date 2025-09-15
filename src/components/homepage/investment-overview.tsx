@@ -59,33 +59,37 @@ export function InvestmentOverview() {
                 </div>
               </div>
             </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <div className="text-sm text-muted-foreground">Investment</div>
-                  <div className="font-semibold">{venture.investment.total}</div>
+            <CardContent className="flex flex-col h-full">
+              <div className="flex-1 space-y-4">
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <div className="text-sm text-muted-foreground">Investment</div>
+                    <div className="font-semibold">{venture.investment.total}</div>
+                  </div>
+                  <div>
+                    <div className="text-sm text-muted-foreground">Timeline</div>
+                    <div className="font-semibold">{venture.keyMetrics.timeline}</div>
+                  </div>
                 </div>
+                
                 <div>
-                  <div className="text-sm text-muted-foreground">Timeline</div>
-                  <div className="font-semibold">{venture.keyMetrics.timeline}</div>
-                </div>
-              </div>
-              
-              <div>
-                <div className="text-sm text-muted-foreground mb-2">Key Metrics</div>
-                <div className="flex flex-wrap gap-1">
-                  {Object.entries(venture.keyMetrics).slice(0, 3).map(([key, value], idx) => (
-                    <Badge key={idx} variant="outline" className="text-xs">
-                      {typeof value === 'string' ? value : `${key}: ${value}`}
-                    </Badge>
-                  ))}
+                  <div className="text-sm text-muted-foreground mb-2">Key Metrics</div>
+                  <div className="flex flex-wrap gap-1">
+                    {Object.entries(venture.keyMetrics).slice(0, 3).map(([key, value], idx) => (
+                      <Badge key={idx} variant="outline" className="text-xs">
+                        {typeof value === 'string' ? value : `${key}: ${value}`}
+                      </Badge>
+                    ))}
+                  </div>
                 </div>
               </div>
 
-              <Button variant="outline" size="sm" className="w-full">
-                Learn More
-                <IconArrowRight className="ml-2 h-4 w-4" />
-              </Button>
+              <div className="mt-auto pt-4">
+                <Button variant="outline" size="sm" className="w-full">
+                  Learn More
+                  <IconArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </div>
             </CardContent>
           </Card>
         ))}
