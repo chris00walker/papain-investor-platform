@@ -7,10 +7,55 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependencies
 node_modules
+/.pnp
+.pnp.js
+
+# Production builds
 dist
 dist-ssr
+build
 *.local
+
+# Environment variables and secrets
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.*.local
+
+# API keys and sensitive configuration
+config/secrets.json
+config/production.json
+*.key
+*.pem
+*.p12
+*.pfx
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Cache and temporary files
+.cache
+.parcel-cache
+.next
+.nuxt
+.vuepress/dist
+.serverless
+.fusebox/
+.dynamodb/
+.tern-port
+
+# Coverage and testing
+coverage/
+*.lcov
+.nyc_output
+.coverage
+junit.xml
 
 # Editor directories and files
 .vscode/*
@@ -22,3 +67,52 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+*~
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Backup files
+*.bak
+*.backup
+*.old
+*.orig
+*.tmp
+
+# Deployment and CI/CD
+.netlify
+.vercel
+.now
+.firebase
+.github/workflows/secrets.yml
+
+# Business sensitive files (investor platform specific)
+/docs/confidential/
+/data/private/
+investor-contacts.json
+financial-projections-detailed.xlsx
+business-plan-confidential.pdf
+legal-documents/
+contracts/
+nda-signed/
+
+# Analytics and tracking
+google-analytics-key.json
+mixpanel-config.json
+hotjar-config.json
+
+# Email and communication
+mailgun-config.json
+sendgrid-config.json
+twilio-config.json
+
+# Payment processing
+stripe-keys.json
+paypal-config.json
+
+# Monitoring and error tracking
+sentry-config.json
+datadog-config.json
