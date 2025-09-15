@@ -1,0 +1,165 @@
+{
+  "executiveSummary": {
+    "title": "Vertically Integrated Papain Value Chain",
+    "subtitle": "A comprehensive investment opportunity spanning cultivation, processing, and distribution",
+    "keyPoints": [
+      "Three integrated ventures across the papain value chain",
+      "Total investment requirement of $1.7M with 25% target IRR",
+      "Projected revenue of $5M+ by Year 3",
+      "Strategic positioning in high-growth enzyme market"
+    ],
+    "investmentHighlights": [
+      {
+        "metric": "$1.7M",
+        "description": "Total Investment Required",
+        "icon": "currency"
+      },
+      {
+        "metric": "25%",
+        "description": "Target IRR",
+        "icon": "trending-up"
+      },
+      {
+        "metric": "3-5 Years",
+        "description": "ROI Timeline",
+        "icon": "calendar"
+      },
+      {
+        "metric": "$5M+",
+        "description": "Revenue by Year 3",
+        "icon": "chart-bar"
+      }
+    ]
+  },
+  "ventures": {
+    "grower": {
+      "summary": "Premium papaya cultivation operation in Barbados optimized for pharmaceutical-grade papain extraction",
+      "keyBenefits": [
+        "Year-round production in ideal tropical climate",
+        "Sustainable farming practices with quality certification",
+        "Strategic location reducing transportation costs",
+        "Integrated supply chain for processor venture"
+      ],
+      "quickFacts": {
+        "location": "Barbados",
+        "size": "25 acres",
+        "capacity": "500 tons annually",
+        "timeline": "18 months to full production"
+      }
+    },
+    "processor": {
+      "summary": "State-of-the-art papain extraction facility producing pharmaceutical-grade enzymes for global markets",
+      "keyBenefits": [
+        "Pharmaceutical-grade quality (>95% purity)",
+        "FDA and GMP certified facility",
+        "Vertical integration with papaya cultivation",
+        "Premium market positioning"
+      ],
+      "quickFacts": {
+        "location": "Barbados",
+        "quality": "Pharmaceutical-grade (>95% purity)",
+        "certifications": "FDA, GMP, International",
+        "timeline": "12-18 months to operational"
+      }
+    },
+    "distributor": {
+      "summary": "Comprehensive distribution network covering the Western Hemisphere with focus on speed and reliability",
+      "keyBenefits": [
+        "2-3 day delivery vs 2-3 weeks from competitors",
+        "99% on-time delivery with inventory buffer",
+        "Complete Western Hemisphere coverage",
+        "Technical support and regulatory assistance"
+      ],
+      "quickFacts": {
+        "coverage": "Western Hemisphere",
+        "delivery": "2-3 days",
+        "reliability": "99% on-time",
+        "timeline": "6-12 months to operational"
+      }
+    }
+  },
+  "marketOpportunity": {
+    "title": "Growing Global Enzyme Market",
+    "marketSize": "USD 58.4 million (2023)",
+    "growthRate": "4.3% CAGR (2024-2030)",
+    "keyDrivers": [
+      "Increasing pharmaceutical applications",
+      "Growing demand for natural enzymes",
+      "Expansion in food processing industry",
+      "Rising health consciousness"
+    ],
+    "targetSegments": [
+      {
+        "segment": "Pharmaceutical",
+        "percentage": 45,
+        "applications": "Digestive enzymes, wound healing, anti-inflammatory"
+      },
+      {
+        "segment": "Food Processing",
+        "percentage": 35,
+        "applications": "Meat tenderization, beverage clarification"
+      },
+      {
+        "segment": "Cosmetics",
+        "percentage": 15,
+        "applications": "Exfoliants, hair removal, skin care"
+      },
+      {
+        "segment": "Other",
+        "percentage": 5,
+        "applications": "Textile processing, research, nutraceuticals"
+      }
+    ]
+  },
+  "competitiveAdvantages": [
+    {
+      "advantage": "Vertical Integration",
+      "description": "Complete control from cultivation to distribution ensures quality and cost efficiency"
+    },
+    {
+      "advantage": "Geographic Positioning",
+      "description": "Barbados location provides optimal growing conditions and strategic market access"
+    },
+    {
+      "advantage": "Quality Focus",
+      "description": "Pharmaceutical-grade standards throughout the value chain"
+    },
+    {
+      "advantage": "Speed to Market",
+      "description": "Significantly faster delivery times compared to distant suppliers"
+    },
+    {
+      "advantage": "Regulatory Compliance",
+      "description": "Full FDA, GMP, and international certifications"
+    }
+  ],
+  "investmentTerms": {
+    "totalInvestment": "$1.7M",
+    "useOfFunds": [
+      {
+        "category": "Grower Operations",
+        "amount": "$650K - $2.5M",
+        "percentage": "38%",
+        "description": "Land, irrigation, planting, equipment"
+      },
+      {
+        "category": "Processing Facility",
+        "amount": "$800K - $1.2M",
+        "percentage": "47%",
+        "description": "Facility, equipment, certification"
+      },
+      {
+        "category": "Distribution Network",
+        "amount": "$400K - $600K",
+        "percentage": "15%",
+        "description": "Logistics, inventory, technology"
+      }
+    ],
+    "expectedReturns": {
+      "irr": "25%",
+      "payback": "3-4 years",
+      "npv": "$8.5M",
+      "exitStrategy": "Strategic acquisition or IPO after 5-7 years"
+    }
+  }
+}

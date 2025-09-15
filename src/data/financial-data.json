@@ -1,0 +1,166 @@
+{
+  "overview": {
+    "totalInvestment": 1700000,
+    "projectedRevenue": {
+      "year1": 800000,
+      "year2": 2500000,
+      "year3": 5200000,
+      "year4": 7800000,
+      "year5": 11500000
+    },
+    "targetIRR": 25,
+    "paybackPeriod": "3-4 years",
+    "netPresentValue": 8500000
+  },
+  "ventures": {
+    "grower": {
+      "investment": {
+        "min": 650000,
+        "max": 2500000,
+        "breakdown": {
+          "land": { "percentage": 35, "amount": 227500 },
+          "irrigation": { "percentage": 22.5, "amount": 146250 },
+          "planting": { "percentage": 17.5, "amount": 113750 },
+          "equipment": { "percentage": 12.5, "amount": 81250 },
+          "workingCapital": { "percentage": 12.5, "amount": 81250 }
+        }
+      },
+      "revenue": {
+        "year1": 150000,
+        "year2": 450000,
+        "year3": 750000,
+        "year4": 900000,
+        "year5": 1100000
+      },
+      "metrics": {
+        "acres": 25,
+        "annualCapacity": "500 tons",
+        "timeToProduction": "18 months",
+        "yieldPerAcre": "20 tons"
+      }
+    },
+    "processor": {
+      "investment": {
+        "min": 800000,
+        "max": 1200000,
+        "breakdown": {
+          "facility": { "percentage": 45, "amount": 450000 },
+          "equipment": { "percentage": 32.5, "amount": 325000 },
+          "certification": { "percentage": 12.5, "amount": 125000 },
+          "workingCapital": { "percentage": 10, "amount": 100000 }
+        }
+      },
+      "revenue": {
+        "year1": 400000,
+        "year2": 1200000,
+        "year3": 2400000,
+        "year4": 3600000,
+        "year5": 5400000
+      },
+      "metrics": {
+        "purityLevel": ">95%",
+        "timeToOperational": "12-18 months",
+        "processingCapacity": "Pharmaceutical-grade",
+        "certifications": ["FDA", "GMP", "International"]
+      }
+    },
+    "distributor": {
+      "investment": {
+        "min": 400000,
+        "max": 600000,
+        "breakdown": {
+          "logistics": { "percentage": 37.5, "amount": 187500 },
+          "inventory": { "percentage": 27.5, "amount": 137500 },
+          "technology": { "percentage": 17.5, "amount": 87500 },
+          "workingCapital": { "percentage": 17.5, "amount": 87500 }
+        }
+      },
+      "revenue": {
+        "year1": 250000,
+        "year2": 850000,
+        "year3": 2050000,
+        "year4": 3300000,
+        "year5": 5000000
+      },
+      "metrics": {
+        "coverage": "Western Hemisphere",
+        "timeToOperational": "6-12 months",
+        "deliverySpeed": "2-3 days",
+        "onTimeDelivery": "99%"
+      }
+    }
+  },
+  "marketAnalysis": {
+    "papainMarket": {
+      "globalSize": "USD 58.4 million (2023)",
+      "cagr": "4.3% (2024-2030)",
+      "keyDrivers": [
+        "Growing pharmaceutical applications",
+        "Increasing demand for natural enzymes",
+        "Expansion in food processing industry"
+      ]
+    },
+    "targetMarkets": {
+      "pharmaceutical": {
+        "percentage": 45,
+        "applications": ["Digestive enzymes", "Wound healing", "Anti-inflammatory"]
+      },
+      "food": {
+        "percentage": 35,
+        "applications": ["Meat tenderization", "Beverage clarification", "Protein hydrolysis"]
+      },
+      "cosmetic": {
+        "percentage": 15,
+        "applications": ["Exfoliants", "Hair removal", "Skin care"]
+      },
+      "other": {
+        "percentage": 5,
+        "applications": ["Textile processing", "Research", "Nutraceuticals"]
+      }
+    }
+  },
+  "riskAnalysis": {
+    "grower": {
+      "risks": [
+        "Weather and climate variability",
+        "Pest and disease management",
+        "Market price fluctuations",
+        "Regulatory changes"
+      ],
+      "mitigation": [
+        "Protected cultivation methods",
+        "Integrated pest management",
+        "Long-term supply contracts",
+        "Compliance monitoring"
+      ]
+    },
+    "processor": {
+      "risks": [
+        "Equipment failure and downtime",
+        "Quality control issues",
+        "Regulatory compliance",
+        "Supply chain disruptions"
+      ],
+      "mitigation": [
+        "Redundant equipment systems",
+        "Rigorous quality protocols",
+        "Proactive regulatory engagement",
+        "Diversified supplier base"
+      ]
+    },
+    "distributor": {
+      "risks": [
+        "Customer concentration",
+        "Logistics disruptions",
+        "Competition from established players",
+        "Currency fluctuations"
+      ],
+      "mitigation": [
+        "Customer diversification strategy",
+        "Multiple logistics partners",
+        "Differentiated value proposition",
+        "Currency hedging strategies"
+      ]
+    }
+  }
+}

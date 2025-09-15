@@ -1,0 +1,136 @@
+{
+  "grower": {
+    "title": "Grower Venture",
+    "subtitle": "Premium papaya cultivation in Barbados",
+    "location": "Barbados",
+    "type": "cultivation",
+    "investment": {
+      "total": "$650K - $2.5M",
+      "breakdown": {
+        "land": "30-40%",
+        "irrigation": "20-25%", 
+        "planting": "15-20%",
+        "equipment": "10-15%",
+        "working_capital": "10-15%"
+      }
+    },
+    "keyMetrics": {
+      "capacity": "500 tons annually",
+      "timeline": "18 months to full production",
+      "location_size": "25 acres",
+      "climate_advantage": "Year-round production"
+    },
+    "valueProposition": {
+      "painRelievers": [
+        "Greenhouse/Protected Cultivation reduces weather-related harvest disruptions",
+        "Quality Certification Programs ensure consistent latex and fruit quality",
+        "Supply Contracts provide predictable pricing and volumes",
+        "Local Processing Facility reduces transportation damage and costs"
+      ],
+      "gainCreators": [
+        "Year-Round Production leveraging Barbados' favorable climate (1,200-1,400mm rainfall)",
+        "Sustainability Certification appeals to environmentally conscious buyers",
+        "Premium Positioning with 'Barbados-grown' brand premium",
+        "Integrated Value Chain from cultivation to processing"
+      ]
+    },
+    "customerSegments": [
+      {
+        "segment": "Papain Processors",
+        "jobsToBeDone": "Secure reliable supply of high-quality papaya latex for enzyme extraction",
+        "pains": ["Inconsistent latex supply", "Weather-related harvest disruptions", "Variable latex quality", "Import dependency and costs"],
+        "gains": ["Year-round local supply", "Consistent latex quality", "Reduced import costs", "Shorter supply chain"]
+      },
+      {
+        "segment": "Fresh Fruit Markets", 
+        "jobsToBeDone": "Source fresh, high-quality papayas for retail customers",
+        "pains": ["Seasonal availability gaps", "Transportation damage", "Inconsistent quality", "Price volatility"],
+        "gains": ["Local sourcing advantage", "Fresher fruit (shorter transport)", "Consistent supply", "Sustainability credentials"]
+      }
+    ],
+    "environmentalAdvantages": [
+      "Located within the suitable 32°N-32°S tropical zone",
+      "Hot, humid climate ideal for papaya growth", 
+      "Annual rainfall of 1,200-1,400mm with good drainage potential",
+      "Frost-free environment year-round"
+    ]
+  },
+  "processor": {
+    "title": "Processor Venture",
+    "subtitle": "Pharmaceutical-grade papain extraction facility",
+    "location": "Barbados",
+    "type": "processing",
+    "investment": {
+      "total": "$800K - $1.2M",
+      "breakdown": {
+        "facility": "40-50%",
+        "equipment": "30-35%",
+        "certification": "10-15%",
+        "working_capital": "10-15%"
+      }
+    },
+    "keyMetrics": {
+      "capacity": "Pharmaceutical-grade papain processing",
+      "timeline": "12-18 months to operational",
+      "facility_size": "State-of-the-art extraction facility",
+      "quality_standards": "Pharmaceutical-grade certification"
+    },
+    "valueProposition": {
+      "painRelievers": [
+        "Advanced extraction technology ensures consistent enzyme quality",
+        "Pharmaceutical-grade certification meets strict industry standards",
+        "Local processing reduces supply chain complexity",
+        "Quality control systems minimize batch variations"
+      ],
+      "gainCreators": [
+        "State-of-the-art extraction and purification facility",
+        "Pharmaceutical-grade papain for premium markets",
+        "Integrated supply chain from local papaya cultivation",
+        "Competitive cost structure through vertical integration"
+      ]
+    }
+  },
+  "distributor": {
+    "title": "Distributor Venture", 
+    "subtitle": "Western Hemisphere distribution network",
+    "location": "Americas",
+    "type": "distribution",
+    "investment": {
+      "total": "$400K - $600K",
+      "breakdown": {
+        "logistics": "35-40%",
+        "inventory": "25-30%",
+        "technology": "15-20%",
+        "working_capital": "15-20%"
+      }
+    },
+    "keyMetrics": {
+      "coverage": "Western Hemisphere distribution",
+      "timeline": "6-12 months to operational", 
+      "network": "Strategic distribution partnerships",
+      "market_reach": "North and South American markets"
+    },
+    "valueProposition": {
+      "painRelievers": [
+        "Reliable supply chain reduces market volatility",
+        "Strategic partnerships ensure market access",
+        "Quality assurance throughout distribution network",
+        "Competitive pricing through integrated value chain"
+      ],
+      "gainCreators": [
+        "Comprehensive Western Hemisphere coverage",
+        "Premium pharmaceutical-grade papain positioning",
+        "Integrated value chain cost advantages",
+        "Strategic market partnerships and relationships"
+      ]
+    }
+  },
+  "summary": {
+    "totalInvestment": "$1.7M",
+    "integratedVentures": 3,
+    "targetIRR": "25%",
+    "roiTimeline": "3-5 years",
+    "projectedRevenue": "$5M+ by Year 3",
+    "marketPosition": "Vertically integrated papain value chain spanning cultivation, processing, and distribution across the Western Hemisphere"
+  }
+}
