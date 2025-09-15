@@ -1,4 +1,4 @@
-import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from 'recharts'
+import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import financialData from '@/data/financial-data.json'
 
@@ -75,20 +75,17 @@ export function InvestmentBreakdownChart() {
                 cx="50%"
                 cy="50%"
                 innerRadius={60}
-                outerRadius={120}
+                outerRadius={100}
                 paddingAngle={2}
                 dataKey="value"
+                label={false}
+                labelLine={false}
               >
                 {data.map((entry, index) => (
                   <Cell key={`cell-${index}`} fill={entry.color} />
                 ))}
               </Pie>
               <Tooltip content={<CustomTooltip />} />
-              <Legend 
-                formatter={(value, entry) => (
-                  <span style={{ color: entry.color || '#000' }}>{value}</span>
-                )}
-              />
             </PieChart>
           </ResponsiveContainer>
         </div>

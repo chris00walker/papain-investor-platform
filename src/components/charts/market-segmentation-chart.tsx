@@ -68,8 +68,9 @@ export function MarketSegmentationChart() {
                   cx="50%"
                   cy="50%"
                   outerRadius={80}
+                  innerRadius={30}
                   dataKey="percentage"
-                  label={({ name, percentage }) => `${name}: ${percentage}%`}
+                  label={false}
                   labelLine={false}
                 >
                   {marketData.map((entry, index) => (

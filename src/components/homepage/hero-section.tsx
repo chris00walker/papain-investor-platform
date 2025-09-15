@@ -33,11 +33,17 @@ export function HeroSection() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-primary hover:bg-primary/90">
+              <Button size="lg" className="bg-primary hover:bg-primary/90" onClick={() => window.location.href = '/investment-opportunity'}>
                 <IconTrendingUp className="mr-2 h-5 w-5" />
                 View Investment Opportunity
               </Button>
-              <Button variant="outline" size="lg">
+              <Button variant="outline" size="lg" onClick={() => {
+                // Create and download executive summary PDF
+                const link = document.createElement('a');
+                link.href = '/executive-summary.pdf';
+                link.download = 'Papain-Investment-Executive-Summary.pdf';
+                link.click();
+              }}>
                 Download Executive Summary
               </Button>
             </div>
