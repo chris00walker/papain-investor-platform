@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button"
-import { IconSeeding, IconBuilding, IconTruck, IconChartBar, IconDownload, IconMail } from "@tabler/icons-react"
+import { IconSeeding, IconBuilding, IconTruck, IconChartBar, IconDownload, IconMail, IconFileText } from "@tabler/icons-react"
 import { Link, useLocation } from "react-router-dom"
 
 export function PrimaryNav() {
@@ -11,6 +11,13 @@ export function PrimaryNav() {
       href: "/",
       icon: IconChartBar,
       isActive: location.pathname === "/"
+    },
+    {
+      title: "Executive Summary",
+      href: "/executive-summary",
+      icon: IconFileText,
+      isActive: location.pathname === "/executive-summary",
+      color: "border-blue-500 text-blue-600"
     },
     {
       title: "Grower",

@@ -20,6 +20,7 @@ import { DistributorFinancialsPage } from './pages/distributor-financials'
 import { DistributorStrategyPage } from './pages/distributor-strategy'
 import { DistributorRisksPage } from './pages/distributor-risks'
 import { DistributorLogisticsPage } from './pages/distributor-logistics'
+import { ExecutiveSummaryPage } from './pages/executive-summary'
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<DashboardLayout />} />
+          <Route path="/executive-summary" element={<ExecutiveSummaryPage />} />
           
           {/* Grower Routes */}
           <Route path="/ventures/grower" element={
