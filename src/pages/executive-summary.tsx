@@ -22,7 +22,7 @@ interface ExecutiveSummaryFile {
 const executiveSummaryFiles: ExecutiveSummaryFile[] = [
   {
     id: 'consolidated',
-    title: 'Consolidated Executive Summary',
+    title: 'Consolidated',
     description: 'Complete overview of the vertically integrated papain value chain',
     venture: 'consolidated',
     filePath: '/documents/consolidated-executive-summary.md',
@@ -31,7 +31,7 @@ const executiveSummaryFiles: ExecutiveSummaryFile[] = [
   },
   {
     id: 'grower',
-    title: 'Grower Venture Summary',
+    title: 'Grower',
     description: 'Barbados papaya farming operations and market positioning',
     venture: 'grower',
     filePath: '/documents/grower-executive-summary.md',
@@ -40,7 +40,7 @@ const executiveSummaryFiles: ExecutiveSummaryFile[] = [
   },
   {
     id: 'processor',
-    title: 'Processor Venture Summary',
+    title: 'Processor',
     description: 'Pharmaceutical-grade papain extraction and processing',
     venture: 'processor',
     filePath: '/documents/processor-executive-summary.md',
@@ -49,7 +49,7 @@ const executiveSummaryFiles: ExecutiveSummaryFile[] = [
   },
   {
     id: 'distributor',
-    title: 'Distributor Venture Summary',
+    title: 'Distributor',
     description: 'Western Hemisphere distribution network and market penetration',
     venture: 'distributor',
     filePath: '/documents/distributor-executive-summary.md',
@@ -116,26 +116,25 @@ export function ExecutiveSummaryPage() {
               </div>
             </div>
             
-            {/* Summary Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+            {/* File Tab Navigation */}
+            <div className="flex items-end mb-6">
               {executiveSummaryFiles.map((file) => (
-                <Card key={file.id} className="hover:shadow-md transition-shadow cursor-pointer" onClick={() => handleTabChange(file.id)}>
-                  <CardHeader className="pb-3">
-                    <div className="flex items-center justify-between">
-                      <div className={`p-2 rounded-lg text-white ${ventureColors[file.venture]}`}>
-                        {file.icon}
-                      </div>
-                      <Badge variant="secondary" className="text-xs">
-                        <Clock className="h-3 w-3 mr-1" />
-                        {file.readTime}
-                      </Badge>
+                <button
+                  key={file.id}
+                  onClick={() => handleTabChange(file.id)}
+                  className={`file-tab ${selectedTab === file.id ? 'active' : ''}`}
+                >
+                  <div className={`p-1.5 rounded text-white ${ventureColors[file.venture]} mr-2`}>
+                    {file.icon}
+                  </div>
+                  <div className="flex flex-col items-start">
+                    <span className="text-sm font-medium">{file.title}</span>
+                    <div className="flex items-center text-xs opacity-75">
+                      <Clock className="h-3 w-3 mr-1" />
+                      {file.readTime}
                     </div>
-                  </CardHeader>
-                  <CardContent>
-                    <h3 className="font-semibold text-sm mb-1">{file.title}</h3>
-                    <p className="text-xs text-gray-600 line-clamp-2">{file.description}</p>
-                  </CardContent>
-                </Card>
+                  </div>
+                </button>
               ))}
             </div>
           </div>

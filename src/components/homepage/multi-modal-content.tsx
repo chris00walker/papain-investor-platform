@@ -211,7 +211,6 @@ export function MultiModalContent() {
 
   return (
     <div className="space-y-4">
-      <h3 className="text-lg font-semibold text-center mb-6">Access Investment Information</h3>
       <div className="space-y-4">
         {contentSections.map((section, index) => (
           <Card key={index} className={`border-l-4 ${section.color.split(' ')[0]}`}>
