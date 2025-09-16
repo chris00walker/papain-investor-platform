@@ -7,8 +7,8 @@ export function HeroSection() {
         {/* Hero Content */}
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-start">
           <div className="space-y-6">
-            <div className="space-y-4">
-              <h1 className="text-4xl font-bold tracking-tight text-foreground lg:text-6xl">
+            <div>
+              <h1 className="text-4xl font-bold tracking-tight text-foreground lg:text-6xl" style={{ marginBottom: '2rem' }}>
                 Vertically Integrated
                 <span className="text-primary block">Papain Value Chain</span>
               </h1>

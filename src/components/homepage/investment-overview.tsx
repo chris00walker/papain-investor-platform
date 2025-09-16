@@ -34,9 +34,9 @@ export function InvestmentOverview() {
   return (
     <div className="container mx-auto px-4 py-16">
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold mb-4">Integrated Value Chain</h2>
-        <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-          {contentSummaries.executiveSummary.subtitle}
+        <h2 className="text-3xl font-bold mb-6">Integrated Value Chain</h2>
+        <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+          A comprehensive investment opportunity spanning cultivation, processing, and distribution across the Western Hemisphere.
         </p>
       </div>
 

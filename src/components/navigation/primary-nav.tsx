@@ -55,9 +55,9 @@ export function PrimaryNav() {
               <Link
                 key={item.href}
                 to={item.href}
-                className={`relative flex items-center space-x-2 px-4 py-2 text-sm font-medium transition-all duration-200 rounded-lg hover:bg-muted/50 ${
+                className={`nav-link ${
                   item.isActive 
-                    ? `bg-muted ${item.color || "text-foreground"} border-b-2` 
+                    ? `bg-muted ${item.color || "text-foreground"} border-b-2 shadow-sm` 
                     : "text-muted-foreground hover:text-foreground"
                 }`}
               >
@@ -86,9 +86,9 @@ export function PrimaryNav() {
                       key={item.href}
                       to={item.href}
                       onClick={() => setIsOpen(false)}
-                      className={`flex items-center space-x-3 px-4 py-3 text-sm font-medium transition-all duration-200 rounded-lg hover:bg-muted/50 ${
+                      className={`nav-link-mobile ${
                         item.isActive 
-                          ? `bg-muted ${item.color || "text-foreground"} border-l-4` 
+                          ? `bg-muted ${item.color || "text-foreground"} border-l-4 shadow-sm` 
                           : "text-muted-foreground hover:text-foreground"
                       }`}
                     >
