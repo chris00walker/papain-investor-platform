@@ -17,6 +17,7 @@ export function BreadcrumbNav() {
     'grower': 'Grower (Barbados)',
     'processor': 'Processor (Extraction)',
     'distributor': 'Distributor (Americas)',
+    'executive-summary': 'Executive Summary',
     'financials': 'Financial Overview',
     'investment': 'Investment Opportunity',
     'resources': 'Resources',

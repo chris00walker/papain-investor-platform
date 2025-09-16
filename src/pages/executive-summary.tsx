@@ -1,10 +1,12 @@
 import { useState, useEffect, useCallback } from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { Tabs, TabsContent } from '@/components/ui/tabs'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Clock, FileText, TrendingUp, Users, Globe, Factory } from 'lucide-react'
 import ReactMarkdown from 'react-markdown'
+import { PrimaryNav } from '@/components/navigation/primary-nav'
+import { BreadcrumbNav } from '@/components/navigation/breadcrumb-nav'
 
 interface ExecutiveSummaryFile {
   id: string
@@ -96,57 +98,50 @@ export function ExecutiveSummaryPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 p-6">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="mb-8">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="p-2 bg-blue-100 rounded-lg">
-              <FileText className="h-6 w-6 text-blue-600" />
+    <div className="min-h-screen bg-gray-50">
+      <PrimaryNav />
+      <BreadcrumbNav />
+      <div className="py-8">
+        <div className="max-w-7xl mx-auto px-4">
+          {/* Header */}
+          <div className="mb-8">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="p-2 bg-blue-100 rounded-lg">
+                <FileText className="h-6 w-6 text-blue-600" />
+              </div>
+              <div>
+                <h1 className="text-3xl font-bold text-gray-900">Executive Summaries</h1>
+                <p className="text-gray-600">Comprehensive overview of the papain value chain investment opportunity</p>
+              </div>
             </div>
-            <div>
-              <h1 className="text-3xl font-bold text-gray-900">Executive Summaries</h1>
-              <p className="text-gray-600">Comprehensive overview of the papain value chain investment opportunity</p>
-            </div>
-          </div>
-          
-          {/* Summary Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-            {executiveSummaryFiles.map((file) => (
-              <Card key={file.id} className="hover:shadow-md transition-shadow cursor-pointer" onClick={() => handleTabChange(file.id)}>
-                <CardHeader className="pb-3">
-                  <div className="flex items-center justify-between">
-                    <div className={`p-2 rounded-lg text-white ${ventureColors[file.venture]}`}>
-                      {file.icon}
+            
+            {/* Summary Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+              {executiveSummaryFiles.map((file) => (
+                <Card key={file.id} className="hover:shadow-md transition-shadow cursor-pointer" onClick={() => handleTabChange(file.id)}>
+                  <CardHeader className="pb-3">
+                    <div className="flex items-center justify-between">
+                      <div className={`p-2 rounded-lg text-white ${ventureColors[file.venture]}`}>
+                        {file.icon}
+                      </div>
+                      <Badge variant="secondary" className="text-xs">
+                        <Clock className="h-3 w-3 mr-1" />
+                        {file.readTime}
+                      </Badge>
                     </div>
-                    <Badge variant="secondary" className="text-xs">
-                      <Clock className="h-3 w-3 mr-1" />
-                      {file.readTime}
-                    </Badge>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <h3 className="font-semibold text-sm mb-1">{file.title}</h3>
-                  <p className="text-xs text-gray-600 line-clamp-2">{file.description}</p>
-                </CardContent>
-              </Card>
-            ))}
+                  </CardHeader>
+                  <CardContent>
+                    <h3 className="font-semibold text-sm mb-1">{file.title}</h3>
+                    <p className="text-xs text-gray-600 line-clamp-2">{file.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
-        </div>
 
         {/* Tabbed Content */}
         <Card className="shadow-lg">
           <Tabs value={selectedTab} onValueChange={handleTabChange} className="w-full">
-            <CardHeader className="border-b">
-              <TabsList className="grid w-full grid-cols-4">
-                {executiveSummaryFiles.map((file) => (
-                  <TabsTrigger key={file.id} value={file.id} className="flex items-center gap-2">
-                    {file.icon}
-                    <span className="hidden sm:inline">{file.title.split(' ')[0]}</span>
-                  </TabsTrigger>
-                ))}
-              </TabsList>
-            </CardHeader>
 
             {executiveSummaryFiles.map((file) => (
               <TabsContent key={file.id} value={file.id} className="mt-0">
@@ -166,23 +161,23 @@ export function ExecutiveSummaryPage() {
                   </div>
                 </CardHeader>
 
-                <CardContent className="p-8">
+                <CardContent className="p-12">
                   {loading[file.id] ? (
-                    <div className="flex items-center justify-center py-12">
+                    <div className="flex items-center justify-center py-16">
                       <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
                       <span className="ml-3 text-gray-600">Loading content...</span>
                     </div>
                   ) : markdownContent[file.id] ? (
-                    <div className="prose prose-lg max-w-none">
+                    <div className="prose prose-lg max-w-none space-y-6">
                       <ReactMarkdown
                         components={{
-                          h1: ({ children }) => <h1 className="text-3xl font-bold text-gray-900 mb-6 pb-3 border-b border-gray-200">{children}</h1>,
-                          h2: ({ children }) => <h2 className="text-2xl font-semibold text-gray-800 mt-8 mb-4">{children}</h2>,
-                          h3: ({ children }) => <h3 className="text-xl font-semibold text-gray-800 mt-6 mb-3">{children}</h3>,
-                          h4: ({ children }) => <h4 className="text-lg font-semibold text-gray-800 mt-4 mb-2">{children}</h4>,
-                          p: ({ children }) => <p className="text-gray-700 leading-relaxed mb-4">{children}</p>,
-                          ul: ({ children }) => <ul className="list-disc list-inside space-y-2 mb-4 text-gray-700">{children}</ul>,
-                          ol: ({ children }) => <ol className="list-decimal list-inside space-y-2 mb-4 text-gray-700">{children}</ol>,
+                          h1: ({ children }) => <h1 className="text-3xl font-bold text-gray-900 mb-8 pb-4 border-b border-gray-200">{children}</h1>,
+                          h2: ({ children }) => <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-6">{children}</h2>,
+                          h3: ({ children }) => <h3 className="text-xl font-semibold text-gray-800 mt-8 mb-4">{children}</h3>,
+                          h4: ({ children }) => <h4 className="text-lg font-semibold text-gray-800 mt-6 mb-3">{children}</h4>,
+                          p: ({ children }) => <p className="text-gray-700 leading-relaxed mb-6">{children}</p>,
+                          ul: ({ children }) => <ul className="list-disc list-inside space-y-3 mb-6 text-gray-700">{children}</ul>,
+                          ol: ({ children }) => <ol className="list-decimal list-inside space-y-3 mb-6 text-gray-700">{children}</ol>,
                           li: ({ children }) => <li className="leading-relaxed">{children}</li>,
                           table: ({ children }) => (
                             <div className="overflow-x-auto mb-6">
@@ -226,6 +221,7 @@ export function ExecutiveSummaryPage() {
             ))}
           </Tabs>
         </Card>
+        </div>
       </div>
     </div>
   )
