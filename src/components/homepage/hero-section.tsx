@@ -20,7 +20,7 @@ export function HeroSection() {
             {/* Key Metrics */}
             <div className="grid grid-cols-2 gap-4 py-6">
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary">$1.7M</div>
+                <div className="text-3xl font-bold text-primary">$5.2M</div>
                 <div className="text-sm text-muted-foreground">Total Investment</div>
               </div>
               <div className="text-center">
