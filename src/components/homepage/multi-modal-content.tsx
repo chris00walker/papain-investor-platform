@@ -57,6 +57,13 @@ export function MultiModalContent() {
       duration: '9 min',
       venture: 'processor',
       filePath: '/video/processor.mp4'
+    },
+    {
+      id: 'distributor-video',
+      title: 'Distributor Venture Presentation',
+      duration: '8 min', // Update with actual duration if known
+      venture: 'distributor',
+      filePath: '/video/distributor.mp4'
     }
   ]
 

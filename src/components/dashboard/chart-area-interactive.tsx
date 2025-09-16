@@ -80,7 +80,7 @@ export function ChartAreaInteractive() {
         <div className="grid flex-1 gap-1 text-center sm:text-left">
           <CardTitle>Revenue Projections</CardTitle>
           <CardDescription>
-            Projected monthly revenue across all three papain ventures (in thousands USD)
+            Projected monthly revenue across all three papain ventures (in thousands BBD)
           </CardDescription>
         </div>
         <Select value={timeRange} onValueChange={setTimeRange}>

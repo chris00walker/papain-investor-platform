@@ -23,7 +23,14 @@ export function BreadcrumbNav() {
     'resources': 'Resources',
     'plans': 'Business Plans',
     'models': 'Financial Models',
-    'downloads': 'Download Center'
+    'downloads': 'Download Center',
+    'business-model': 'Business Model',
+    'market': 'Market',
+    'risks': 'Risks',
+    'operations': 'Operations',
+    'technology': 'Technology',
+    'strategy': 'Strategy',
+    'logistics': 'Logistics'
   }
 
   if (pathnames.length === 0) {
