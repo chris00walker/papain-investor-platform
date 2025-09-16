@@ -6,7 +6,7 @@ import { InvestmentOverview } from '@/components/homepage/investment-overview'
 
 export function DashboardLayout() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen" style={{backgroundColor: '#f8f8f8'}}>
       <PrimaryNav />
       <div className="pt-20"> {/* Increased padding to ensure content visibility */}
         <BreadcrumbNav />

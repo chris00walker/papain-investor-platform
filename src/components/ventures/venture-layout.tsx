@@ -11,7 +11,7 @@ interface VentureLayoutProps {
 
 export function VentureLayout({ ventureType, children }: VentureLayoutProps) {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen" style={{backgroundColor: '#f8f8f8'}}>
       <PrimaryNav />
       <div className="pt-20"> {/* Increased padding to ensure content visibility */}
         <BreadcrumbNav />

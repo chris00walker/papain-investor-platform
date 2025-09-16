@@ -13,38 +13,38 @@ export function RevenueProjectionChart() {
   const data = [
     {
       year: 'Year 1',
-      grower: financialData.ventures.grower.revenue.year1 / 1000,
-      processor: financialData.ventures.processor.revenue.year1 / 1000,
-      distributor: financialData.ventures.distributor.revenue.year1 / 1000,
-      total: financialData.overview.projectedRevenue.year1 / 1000
+      grower: financialData.ventures.grower.revenue.year1 / 1000000,
+      processor: financialData.ventures.processor.revenue.year1 / 1000000,
+      distributor: financialData.ventures.distributor.revenue.year1 / 1000000,
+      total: financialData.overview.projectedRevenue.year1 / 1000000
     },
     {
       year: 'Year 2',
-      grower: financialData.ventures.grower.revenue.year2 / 1000,
-      processor: financialData.ventures.processor.revenue.year2 / 1000,
-      distributor: financialData.ventures.distributor.revenue.year2 / 1000,
-      total: financialData.overview.projectedRevenue.year2 / 1000
+      grower: financialData.ventures.grower.revenue.year2 / 1000000,
+      processor: financialData.ventures.processor.revenue.year2 / 1000000,
+      distributor: financialData.ventures.distributor.revenue.year2 / 1000000,
+      total: financialData.overview.projectedRevenue.year2 / 1000000
     },
     {
       year: 'Year 3',
-      grower: financialData.ventures.grower.revenue.year3 / 1000,
-      processor: financialData.ventures.processor.revenue.year3 / 1000,
-      distributor: financialData.ventures.distributor.revenue.year3 / 1000,
-      total: financialData.overview.projectedRevenue.year3 / 1000
+      grower: financialData.ventures.grower.revenue.year3 / 1000000,
+      processor: financialData.ventures.processor.revenue.year3 / 1000000,
+      distributor: financialData.ventures.distributor.revenue.year3 / 1000000,
+      total: financialData.overview.projectedRevenue.year3 / 1000000
     },
     {
       year: 'Year 4',
-      grower: financialData.ventures.grower.revenue.year4 / 1000,
-      processor: financialData.ventures.processor.revenue.year4 / 1000,
-      distributor: financialData.ventures.distributor.revenue.year4 / 1000,
-      total: financialData.overview.projectedRevenue.year4 / 1000
+      grower: financialData.ventures.grower.revenue.year4 / 1000000,
+      processor: financialData.ventures.processor.revenue.year4 / 1000000,
+      distributor: financialData.ventures.distributor.revenue.year4 / 1000000,
+      total: financialData.overview.projectedRevenue.year4 / 1000000
     },
     {
       year: 'Year 5',
-      grower: financialData.ventures.grower.revenue.year5 / 1000,
-      processor: financialData.ventures.processor.revenue.year5 / 1000,
-      distributor: financialData.ventures.distributor.revenue.year5 / 1000,
-      total: financialData.overview.projectedRevenue.year5 / 1000
+      grower: financialData.ventures.grower.revenue.year5 / 1000000,
+      processor: financialData.ventures.processor.revenue.year5 / 1000000,
+      distributor: financialData.ventures.distributor.revenue.year5 / 1000000,
+      total: financialData.overview.projectedRevenue.year5 / 1000000
     }
   ]
 
@@ -61,11 +61,11 @@ export function RevenueProjectionChart() {
   const CustomTooltip = ({ active, payload, label }: TooltipProps) => {
     if (active && payload && payload.length) {
       return (
-        <div className="bg-background border rounded-lg p-3 shadow-lg">
+        <div className="bg-white/80 border border-white/20 rounded-lg p-3 shadow-lg backdrop-blur-md">
           <p className="font-semibold mb-2">{label}</p>
           {payload.map((entry, index: number) => (
             <p key={index} style={{ color: entry.color }}>
-              {entry.name}: ${entry.value.toFixed(0)}K
+              {entry.name}: ${entry.value.toFixed(1)}M
             </p>
           ))}
         </div>
@@ -79,7 +79,7 @@ export function RevenueProjectionChart() {
       <CardHeader>
         <CardTitle>Revenue Projections</CardTitle>
         <CardDescription>
-          5-year revenue forecast across all ventures (in thousands USD)
+          5-year revenue forecast across all ventures (in millions USD)
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -89,7 +89,7 @@ export function RevenueProjectionChart() {
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="year" />
               <YAxis 
-                tickFormatter={(value) => `$${value}K`}
+                tickFormatter={(value) => `$${value.toFixed(1)}M`}
               />
               <Tooltip content={<CustomTooltip />} />
               <Legend />

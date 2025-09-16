@@ -34,7 +34,7 @@ export function MarketSegmentationChart() {
     if (active && payload && payload.length) {
       const data = payload[0].payload
       return (
-        <div className="bg-background border rounded-lg p-3 shadow-lg max-w-xs">
+        <div className="bg-white/80 border border-white/20 rounded-lg p-3 shadow-lg backdrop-blur-md max-w-xs">
           <p className="font-semibold">{data.name}</p>
           <p className="text-lg font-bold" style={{ color: data.color }}>
             {data.percentage}%

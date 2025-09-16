@@ -1,9 +1,12 @@
 import { Button } from "@/components/ui/button"
-import { IconSeeding, IconBuilding, IconTruck, IconChartBar, IconDownload, IconMail, IconFileText } from "@tabler/icons-react"
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
+import { IconSeeding, IconBuilding, IconTruck, IconChartBar, IconFileText, IconBrandWhatsapp, IconMenu2 } from "@tabler/icons-react"
 import { Link, useLocation } from "react-router-dom"
+import { useState } from "react"
 
 export function PrimaryNav() {
   const location = useLocation()
+  const [isOpen, setIsOpen] = useState(false)
 
   const navItems = [
     {
@@ -46,8 +49,8 @@ export function PrimaryNav() {
     <div className="sticky top-0 z-50 w-full border-b bg-white shadow-sm">
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
-          {/* Clean Primary Navigation */}
-          <nav className="flex items-center space-x-1">
+          {/* Desktop Navigation - Hidden on mobile */}
+          <nav className="hidden md:flex items-center space-x-1">
             {navItems.map((item) => (
               <Link
                 key={item.href}
@@ -59,22 +62,62 @@ export function PrimaryNav() {
                 }`}
               >
                 <item.icon className="h-4 w-4" />
-                <span className="hidden sm:inline">{item.title}</span>
+                <span>{item.title}</span>
               </Link>
             ))}
           </nav>
 
-          {/* Streamlined Actions */}
-          <div className="flex items-center space-x-2">
-            <Button variant="ghost" size="sm" asChild className="hidden md:flex">
-              <Link to="/resources/downloads">
-                <IconDownload className="h-4 w-4 mr-2" />
-                Resources
-              </Link>
-            </Button>
-            <Button size="sm" className="bg-primary hover:bg-primary/90">
-              <IconMail className="h-4 w-4 mr-2" />
-              <span className="hidden sm:inline">Contact</span>
+          {/* Mobile Navigation - Hamburger Menu */}
+          <div className="flex md:hidden items-center">
+            <Sheet open={isOpen} onOpenChange={setIsOpen}>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="sm" className="p-2">
+                  <IconMenu2 className="h-5 w-5" />
+                  <span className="sr-only">Open menu</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="left" className="w-80 bg-white">
+                <SheetHeader>
+                  <SheetTitle>Navigation</SheetTitle>
+                </SheetHeader>
+                <div className="flex flex-col space-y-2 mt-6">
+                  {navItems.map((item) => (
+                    <Link
+                      key={item.href}
+                      to={item.href}
+                      onClick={() => setIsOpen(false)}
+                      className={`flex items-center space-x-3 px-4 py-3 text-sm font-medium transition-all duration-200 rounded-lg hover:bg-muted/50 ${
+                        item.isActive 
+                          ? `bg-muted ${item.color || "text-foreground"} border-l-4` 
+                          : "text-muted-foreground hover:text-foreground"
+                      }`}
+                    >
+                      <item.icon className="h-5 w-5" />
+                      <span>{item.title}</span>
+                    </Link>
+                  ))}
+                  
+                  {/* Mobile Contact Button */}
+                  <div className="pt-4 border-t">
+                    <Button size="sm" className="w-full bg-green-500 hover:bg-green-600 text-white" asChild>
+                      <a href="https://wa.me/12462443721" target="_blank" rel="noopener noreferrer">
+                        <IconBrandWhatsapp className="h-4 w-4 mr-2" />
+                        Contact via WhatsApp
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
+
+          {/* Desktop Actions */}
+          <div className="hidden md:flex items-center space-x-2">
+            <Button size="sm" className="bg-green-500 hover:bg-green-600 text-white" asChild>
+              <a href="https://wa.me/12462443721" target="_blank" rel="noopener noreferrer">
+                <IconBrandWhatsapp className="h-4 w-4 mr-2" />
+                <span className="hidden lg:inline">Contact</span>
+              </a>
             </Button>
           </div>
         </div>

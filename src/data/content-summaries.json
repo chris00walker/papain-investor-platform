@@ -4,29 +4,29 @@
     "subtitle": "A comprehensive investment opportunity spanning cultivation, processing, and distribution",
     "keyPoints": [
       "Three integrated ventures across the papain value chain",
-      "Total investment requirement of $1.7M with 25% target IRR",
-      "Projected revenue of $5M+ by Year 3",
+      "Total investment requirement of $5.2M with 25% combined IRR",
+      "Projected revenue of $21.25M by Year 5",
       "Strategic positioning in high-growth enzyme market"
     ],
     "investmentHighlights": [
       {
-        "metric": "$1.7M",
+        "metric": "$5.2M",
         "description": "Total Investment Required",
         "icon": "currency"
       },
       {
         "metric": "25%",
-        "description": "Target IRR",
+        "description": "Combined IRR",
         "icon": "trending-up"
       },
       {
-        "metric": "3-5 Years",
-        "description": "ROI Timeline",
+        "metric": "7 Years",
+        "description": "Investment Horizon",
         "icon": "calendar"
       },
       {
-        "metric": "$5M+",
-        "description": "Revenue by Year 3",
+        "metric": "$21.25M",
+        "description": "Revenue by Year 5",
         "icon": "chart-bar"
       }
     ]
@@ -134,7 +134,7 @@
     }
   ],
   "investmentTerms": {
-    "totalInvestment": "$1.7M",
+    "totalInvestment": "$5.2M",
     "useOfFunds": [
       {
         "category": "Grower Operations",

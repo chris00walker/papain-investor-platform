@@ -46,11 +46,11 @@ export function InvestmentBreakdownChart() {
     if (active && payload && payload.length) {
       const data = payload[0].payload
       return (
-        <div className="bg-background border rounded-lg p-3 shadow-lg">
+        <div className="bg-white/80 border border-white/20 rounded-lg p-3 shadow-lg backdrop-blur-md">
           <p className="font-semibold">{data.name}</p>
           <p className="text-sm text-muted-foreground">{data.description}</p>
           <p className="text-lg font-bold" style={{ color: data.color }}>
-            ${(data.value / 1000).toFixed(0)}K
+            ${(data.value / 1000000).toFixed(1)}M
           </p>
         </div>
       )
@@ -98,7 +98,7 @@ export function InvestmentBreakdownChart() {
                 style={{ backgroundColor: item.color }}
               />
               <p className="font-semibold text-sm">{item.name}</p>
-              <p className="text-2xl font-bold">${(item.value / 1000).toFixed(0)}K</p>
+              <p className="text-2xl font-bold">${(item.value / 1000000).toFixed(1)}M</p>
               <p className="text-xs text-muted-foreground">{item.description}</p>
             </div>
           ))}
