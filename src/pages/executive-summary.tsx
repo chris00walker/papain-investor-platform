@@ -1,10 +1,11 @@
-import { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Tabs, TabsContent } from '@/components/ui/tabs'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { Clock, FileText, TrendingUp, Users, Globe, Factory } from 'lucide-react'
+import { FileText, Clock, Factory, Globe, TrendingUp, Users } from 'lucide-react'
 import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 import { PrimaryNav } from '@/components/navigation/primary-nav'
 import { BreadcrumbNav } from '@/components/navigation/breadcrumb-nav'
 
@@ -98,7 +99,7 @@ export function ExecutiveSummaryPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen" style={{backgroundColor: '#f8f8f8'}}>
       <PrimaryNav />
       <BreadcrumbNav />
       <div className="py-8">
@@ -170,17 +171,18 @@ export function ExecutiveSummaryPage() {
                   ) : markdownContent[file.id] ? (
                     <div className="prose prose-lg max-w-none space-y-6">
                       <ReactMarkdown
+                        remarkPlugins={[remarkGfm]}
                         components={{
-                          h1: ({ children }) => <h1 className="text-3xl font-bold text-gray-900 mb-8 pb-4 border-b border-gray-200">{children}</h1>,
-                          h2: ({ children }) => <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-6">{children}</h2>,
-                          h3: ({ children }) => <h3 className="text-xl font-semibold text-gray-800 mt-8 mb-4">{children}</h3>,
-                          h4: ({ children }) => <h4 className="text-lg font-semibold text-gray-800 mt-6 mb-3">{children}</h4>,
-                          p: ({ children }) => <p className="text-gray-700 leading-relaxed mb-6">{children}</p>,
+                          h1: ({ children }) => <h1 className="text-3xl font-bold text-gray-900 mb-12 pb-6 border-b border-gray-200 leading-tight">{children}</h1>,
+                          h2: ({ children }) => <h2 className="text-2xl font-semibold text-gray-800 mt-16 mb-8">{children}</h2>,
+                          h3: ({ children }) => <h3 className="text-xl font-semibold text-gray-800 mt-12 mb-6">{children}</h3>,
+                          h4: ({ children }) => <h4 className="text-lg font-semibold text-gray-800 mt-10 mb-5">{children}</h4>,
+                          p: ({ children }) => <p className="text-gray-700 leading-relaxed mb-8">{children}</p>,
                           ul: ({ children }) => <ul className="list-disc list-inside space-y-3 mb-6 text-gray-700">{children}</ul>,
                           ol: ({ children }) => <ol className="list-decimal list-inside space-y-3 mb-6 text-gray-700">{children}</ol>,
                           li: ({ children }) => <li className="leading-relaxed">{children}</li>,
                           table: ({ children }) => (
-                            <div className="overflow-x-auto mb-6">
+                            <div className="overflow-x-auto mb-10 mt-6">
                               <table className="min-w-full divide-y divide-gray-200 border border-gray-300 rounded-lg">{children}</table>
                             </div>
                           ),

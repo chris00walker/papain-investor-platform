@@ -6,7 +6,7 @@
       "year2": 2500000,
       "year3": 5200000,
       "year4": 7800000,
-      "year5": 11500000
+      "year5": 21250000
     },
     "targetIRR": 25,
     "paybackPeriod": "3-4 years",
@@ -30,7 +30,7 @@
         "year2": 450000,
         "year3": 750000,
         "year4": 900000,
-        "year5": 1100000
+        "year5": 1350000
       },
       "metrics": {
         "acres": 25,
@@ -55,7 +55,7 @@
         "year2": 1200000,
         "year3": 2400000,
         "year4": 3600000,
-        "year5": 5400000
+        "year5": 8100000
       },
       "metrics": {
         "purityLevel": ">95%",
@@ -80,7 +80,7 @@
         "year2": 850000,
         "year3": 2050000,
         "year4": 3300000,
-        "year5": 5000000
+        "year5": 11800000
       },
       "metrics": {
         "coverage": "Western Hemisphere",

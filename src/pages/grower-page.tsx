@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { IconSeeding, IconDownload, IconTrendingUp } from "@tabler/icons-react"
+import { MeetingScheduler } from "@/components/ui/meeting-scheduler"
+import { IconTrendingUp, IconSeedling } from '@tabler/icons-react'
 import ventureData from '@/data/venture-data.json'
 import contentSummaries from '@/data/content-summaries.json'
 
@@ -14,7 +14,7 @@ export function GrowerPage() {
       {/* Hero Section */}
       <div className="mb-12">
         <div className="flex items-center space-x-3 mb-4">
-          <IconSeeding className="h-8 w-8 text-primary" />
+          <IconSeedling className="h-8 w-8 text-primary" />
           <h1 className="text-4xl font-bold">{growerData.title}</h1>
         </div>
         <p className="text-xl text-muted-foreground mb-6">
@@ -166,20 +166,14 @@ export function GrowerPage() {
       </Card>
 
       {/* CTA Section */}
-      <Card className="bg-gradient-to-r from-primary/5 to-secondary/5">
+      <Card>
         <CardContent className="p-8 text-center">
           <h3 className="text-2xl font-bold mb-4">Ready to Invest in Grower Operations?</h3>
           <p className="text-muted-foreground mb-6">
             Join us in building a sustainable papaya cultivation operation in Barbados
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg">
-              Schedule Investment Meeting
-            </Button>
-            <Button size="lg" variant="outline">
-              <IconDownload className="mr-2 h-5 w-5" />
-              Download Grower Prospectus
-            </Button>
+          <div className="flex justify-center">
+            <MeetingScheduler ventureType="grower" />
           </div>
         </CardContent>
       </Card>

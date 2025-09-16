@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { IconTruck, IconDownload, IconGlobe } from "@tabler/icons-react"
+import { MeetingScheduler } from "@/components/ui/meeting-scheduler"
+import { IconTruck, IconGlobe } from '@tabler/icons-react'
 import ventureData from '@/data/venture-data.json'
 import contentSummaries from '@/data/content-summaries.json'
 
@@ -141,20 +141,14 @@ export function DistributorPage() {
       </Card>
 
       {/* CTA Section */}
-      <Card className="bg-gradient-to-r from-accent/5 to-primary/5">
+      <Card>
         <CardContent className="p-8 text-center">
           <h3 className="text-2xl font-bold mb-4">Invest in Distribution Excellence</h3>
           <p className="text-muted-foreground mb-6">
             Join us in building the premier papain distribution network across the Americas
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-accent hover:bg-accent/90">
-              Schedule Investment Meeting
-            </Button>
-            <Button size="lg" variant="outline">
-              <IconDownload className="mr-2 h-5 w-5" />
-              Download Distributor Prospectus
-            </Button>
+          <div className="flex justify-center">
+            <MeetingScheduler ventureType="distributor" />
           </div>
         </CardContent>
       </Card>

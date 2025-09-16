@@ -1,5 +1,3 @@
-import { Button } from "@/components/ui/button"
-import { IconTrendingUp } from "@tabler/icons-react"
 import { MultiModalContent } from "./multi-modal-content"
 
 export function HeroSection() {
@@ -33,10 +31,6 @@ export function HeroSection() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <Button size="lg" className="bg-primary hover:bg-primary/90" onClick={() => window.location.href = '/investment-opportunity'}>
-                <IconTrendingUp className="mr-2 h-5 w-5" />
-                View Investment Opportunity
-              </Button>
             </div>
           </div>
 

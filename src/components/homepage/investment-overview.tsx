@@ -1,7 +1,8 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { IconSeeding, IconFlask, IconTruck, IconArrowRight, IconDownload } from "@tabler/icons-react"
+import { IconSeedling, IconFlask, IconTruck, IconArrowRight } from "@tabler/icons-react"
+import { Link } from "react-router-dom"
 import { InvestmentBreakdownChart } from "@/components/charts/investment-breakdown-chart"
 import { RevenueProjectionChart } from "@/components/charts/revenue-projection-chart"
 import { MarketSegmentationChart } from "@/components/charts/market-segmentation-chart"
@@ -12,18 +13,21 @@ export function InvestmentOverview() {
   const ventures = [
     {
       ...ventureData.grower,
-      icon: IconSeeding,
-      color: "border-primary text-primary bg-primary/5"
+      icon: IconSeedling,
+      color: "border-primary text-primary",
+      route: "/ventures/grower"
     },
     {
       ...ventureData.processor,
       icon: IconFlask,
-      color: "border-secondary text-secondary bg-secondary/5"
+      color: "border-secondary text-secondary",
+      route: "/ventures/processor"
     },
     {
       ...ventureData.distributor,
       icon: IconTruck,
-      color: "border-accent text-accent bg-accent/5"
+      color: "border-accent text-accent",
+      route: "/ventures/distributor"
     }
   ]
 
@@ -48,13 +52,13 @@ export function InvestmentOverview() {
 
       {/* Venture Cards with Real Data */}
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mb-12">
-        {ventures.map((venture, index) => (
-          <Card key={index} className={`${venture.color} border-l-4 hover:shadow-lg transition-shadow`}>
+        {ventures.map((venture) => (
+          <Card key={venture.title} className={`${venture.color} border-l-4 hover:shadow-lg transition-shadow`}>
             <CardHeader>
               <div className="flex items-center space-x-3">
                 <venture.icon className="h-8 w-8" />
                 <div>
-                  <CardTitle className="text-lg">{venture.title}</CardTitle>
+                  <CardTitle className="font-semibold text-lg">{venture.title}</CardTitle>
                   <CardDescription>{venture.subtitle}</CardDescription>
                 </div>
               </div>
@@ -85,9 +89,11 @@ export function InvestmentOverview() {
               </div>
 
               <div className="mt-auto pt-4">
-                <Button variant="outline" size="sm" className="w-full">
-                  Learn More
-                  <IconArrowRight className="ml-2 h-4 w-4" />
+                <Button variant="outline" size="sm" className="w-full" asChild>
+                  <Link to={venture.route}>
+                    Learn More
+                    <IconArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
                 </Button>
               </div>
             </CardContent>
@@ -96,7 +102,7 @@ export function InvestmentOverview() {
       </div>
 
       {/* Investment Summary with Real Data */}
-      <Card className="bg-gradient-to-r from-primary/5 to-secondary/5">
+      <Card>
         <CardContent className="p-8">
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {contentSummaries.executiveSummary.investmentHighlights.map((highlight, index) => (
@@ -107,16 +113,6 @@ export function InvestmentOverview() {
             ))}
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 mt-8 justify-center">
-            <Button size="lg" className="font-semibold">
-              View Investment Details
-              <IconArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <Button size="lg" variant="outline" className="font-semibold">
-              <IconDownload className="mr-2 h-5 w-5" />
-              Download Prospectus
-            </Button>
-          </div>
         </CardContent>
       </Card>
     </div>
