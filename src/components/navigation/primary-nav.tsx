@@ -1,3 +1,4 @@
+import React from "react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { IconSeeding, IconBuilding, IconTruck, IconChartBar, IconFileText, IconBrandWhatsapp, IconMenu2 } from "@tabler/icons-react"
@@ -50,21 +51,37 @@ export function PrimaryNav() {
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
           {/* Desktop Navigation - Hidden on mobile */}
-          <nav className="hidden md:flex items-center space-x-1">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                to={item.href}
-                className={`nav-link ${
-                  item.isActive 
-                    ? `bg-muted ${item.color || "text-foreground"} border-b-2 shadow-sm` 
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                <item.icon className="h-4 w-4" />
-                <span>{item.title}</span>
-              </Link>
-            ))}
+          <nav className="hidden md:flex items-center w-full">
+            {/* Pin Overview to the far left */}
+            <Link
+              key={navItems[0].href}
+              to={navItems[0].href}
+              className={`nav-link ${
+                navItems[0].isActive 
+                  ? `bg-muted ${navItems[0].color || "text-foreground"} border-b-2 shadow-sm` 
+                  : "text-muted-foreground hover:text-foreground"
+              } mr-8`}
+            >
+              {React.createElement(navItems[0].icon, { className: 'h-4 w-4' })}
+              {navItems[0].title}
+            </Link>
+            {/* Render the rest of the nav items */}
+            <div className="flex items-center space-x-1">
+              {navItems.slice(1).map((item) => (
+                <Link
+                  key={item.href}
+                  to={item.href}
+                  className={`nav-link ${
+                    item.isActive 
+                      ? `bg-muted ${item.color || "text-foreground"} border-b-2 shadow-sm` 
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  <item.icon className="h-4 w-4" />
+                  <span>{item.title}</span>
+                </Link>
+              ))}
+            </div>
           </nav>
 
           {/* Mobile Navigation - Hamburger Menu */}

@@ -1,0 +1,20 @@
+{
+  "totalInvestment": 5200000,
+  "ventures": [
+    {
+      "name": "Grower Operations",
+      "amount": 1800000,
+      "description": "Papaya farming in Barbados"
+    },
+    {
+      "name": "Processing Facility",
+      "amount": 2200000,
+      "description": "Pharmaceutical-grade papain processing facility"
+    },
+    {
+      "name": "Distribution Network",
+      "amount": 1200000,
+      "description": "Miami-based regional papain distribution hub"
+    }
+  ]
+}

@@ -1,5 +1,7 @@
 import { MultiModalContent } from "./multi-modal-content"
 
+import investmentTotals from '@/data/investment-totals.json';
+
 export function HeroSection() {
   return (
     <div className="relative overflow-hidden bg-gradient-to-br from-primary/5 via-background to-secondary/5">
@@ -20,7 +22,7 @@ export function HeroSection() {
             {/* Key Metrics */}
             <div className="grid grid-cols-2 gap-4 py-6">
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary">$5.2M</div>
+                <div className="text-3xl font-bold text-primary">${(investmentTotals.totalInvestment / 1000000).toFixed(1)}M</div>
                 <div className="text-sm text-muted-foreground">Total Investment</div>
               </div>
               <div className="text-center">

@@ -1,6 +1,5 @@
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import financialData from '@/data/financial-data.json'
 
 const COLORS = {
   grower: 'hsl(var(--primary))',
@@ -8,27 +7,21 @@ const COLORS = {
   distributor: 'hsl(var(--accent))'
 }
 
+import investmentTotals from '@/data/investment-totals.json';
+
+interface Venture {
+  name: string;
+  amount: number;
+  description: string;
+}
+
 export function InvestmentBreakdownChart() {
-  const data = [
-    {
-      name: 'Grower Operations',
-      value: (financialData.ventures.grower.investment.min + financialData.ventures.grower.investment.max) / 2,
-      color: COLORS.grower,
-      description: 'Land, irrigation, planting, equipment'
-    },
-    {
-      name: 'Processing Facility', 
-      value: (financialData.ventures.processor.investment.min + financialData.ventures.processor.investment.max) / 2,
-      color: COLORS.processor,
-      description: 'Facility, equipment, certification'
-    },
-    {
-      name: 'Distribution Network',
-      value: (financialData.ventures.distributor.investment.min + financialData.ventures.distributor.investment.max) / 2,
-      color: COLORS.distributor,
-      description: 'Logistics, inventory, technology'
-    }
-  ]
+  const data = (investmentTotals.ventures as Venture[]).map((venture: Venture, idx: number) => ({
+    name: venture.name,
+    value: venture.amount,
+    color: Object.values(COLORS)[idx],
+    description: venture.description
+  }));
 
   interface TooltipProps {
     active?: boolean
@@ -81,7 +74,7 @@ export function InvestmentBreakdownChart() {
                 label={false}
                 labelLine={false}
               >
-                {data.map((entry, index) => (
+                {data.map((entry: { color: string }, index: number) => (
                   <Cell key={`cell-${index}`} fill={entry.color} />
                 ))}
               </Pie>
@@ -91,7 +84,7 @@ export function InvestmentBreakdownChart() {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
-          {data.map((item, index) => (
+          {data.map((item: { name: string; value: number; color: string; description: string }, index: number) => (
             <div key={index} className="text-center">
               <div 
                 className="w-4 h-4 rounded-full mx-auto mb-2"

@@ -2,9 +2,10 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import { IconPlayerPlay, IconHeadphones, IconFileText, IconDownload, IconChevronDown, IconChevronRight, IconX } from "@tabler/icons-react"
+import { IconPlayerPlay, IconHeadphones, IconFileText, IconChevronDown, IconChevronRight, IconX } from "@tabler/icons-react"
 import { useState } from "react"
 import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 
 interface MediaFile {
   id: string
@@ -345,8 +346,9 @@ export function MultiModalContent() {
                 variant="ghost"
                 size="sm"
                 onClick={closeVideoModal}
+                className="text-white hover:bg-white/10"
               >
-                <IconX className="h-4 w-4" />
+                <IconX className="h-4 w-4 text-white" />
               </Button>
             </DialogTitle>
           </DialogHeader>
@@ -369,7 +371,7 @@ export function MultiModalContent() {
               </div>
               <div className="flex items-center justify-between text-sm text-muted-foreground">
                 <div className="flex items-center gap-2">
-                  <Badge className={getVentureColor(selectedVideo.venture)}>
+                  <Badge className={getVentureColor(selectedVideo.venture) + ' text-white'}>
                     {selectedVideo.venture} venture
                   </Badge>
                   <span>Duration: {selectedVideo.duration}</span>
@@ -390,8 +392,9 @@ export function MultiModalContent() {
                 variant="ghost"
                 size="sm"
                 onClick={closeAudioModal}
+                className="text-white hover:bg-white/10"
               >
-                <IconX className="h-4 w-4" />
+                <IconX className="h-4 w-4 text-white" />
               </Button>
             </DialogTitle>
           </DialogHeader>
@@ -419,7 +422,7 @@ export function MultiModalContent() {
               </div>
               <div className="flex items-center justify-between text-sm text-muted-foreground">
                 <div className="flex items-center gap-2">
-                  <Badge className={getVentureColor(selectedAudio.venture)}>
+                  <Badge className={getVentureColor(selectedAudio.venture) + ' text-white'}>
                     {selectedAudio.venture} venture
                   </Badge>
                   <span>Duration: {selectedAudio.duration}</span>
@@ -437,7 +440,7 @@ export function MultiModalContent() {
             <DialogHeader>
               <DialogTitle className="flex items-center justify-between">
                 <div className="flex items-center gap-4">
-                  <div className={`p-3 rounded-xl shadow-md ${selectedSummary ? getVentureColor(selectedSummary.venture) : 'bg-gray-100 dark:bg-gray-800'}`}>
+                  <div className={`p-3 rounded-xl shadow-md ${selectedSummary ? getVentureColor(selectedSummary.venture) + ' text-white' : 'bg-gray-100 dark:bg-gray-800 text-white'}`}>
                     <IconFileText className="h-6 w-6" />
                   </div>
                   <div>
@@ -449,9 +452,9 @@ export function MultiModalContent() {
                   variant="ghost"
                   size="sm"
                   onClick={closeSummaryModal}
-                  className="hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full p-2"
+                  className="text-white hover:bg-white/10 rounded-full p-2"
                 >
-                  <IconX className="h-5 w-5" />
+                  <IconX className="h-5 w-5 text-white" />
                 </Button>
               </DialogTitle>
             </DialogHeader>
@@ -462,27 +465,41 @@ export function MultiModalContent() {
                 <div className="flex items-center gap-4">
                   <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{selectedSummary.readTime}</span>
                 </div>
-                <Button
-                  variant="default"
-                  size="sm"
-                  onClick={() => {
-                    const element = document.createElement('a');
-                    element.setAttribute('href', selectedSummary.filePath);
-                    element.setAttribute('download', `${selectedSummary.id}.md`);
-                    element.style.display = 'none';
-                    document.body.appendChild(element);
-                    element.click();
-                    document.body.removeChild(element);
-                  }}
-                  className="bg-primary hover:bg-primary/90 text-white shadow-md"
-                >
-                  <IconDownload className="h-4 w-4 mr-2" />
-                  Download PDF
-                </Button>
               </div>
               <div className="overflow-y-auto max-h-[60vh] prose prose-xl max-w-none bg-white dark:bg-gray-900 p-12 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-xl">
                 <ReactMarkdown
+                  remarkPlugins={[remarkGfm]}
                   components={{
+                    table: ({children}) => (
+                      <table className="w-full border-collapse my-8 text-base text-left text-gray-900 dark:text-gray-100">
+                        {children}
+                      </table>
+                    ),
+                    thead: ({children}) => (
+                      <thead className="bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100">
+                        {children}
+                      </thead>
+                    ),
+                    tbody: ({children}) => (
+                      <tbody className="text-gray-900 dark:text-gray-100">
+                        {children}
+                      </tbody>
+                    ),
+                    tr: ({children}) => (
+                      <tr className="border-b border-gray-200 dark:border-gray-700">
+                        {children}
+                      </tr>
+                    ),
+                    th: ({children}) => (
+                      <th className="px-4 py-3 font-semibold bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 border border-gray-200 dark:border-gray-700">
+                        {children}
+                      </th>
+                    ),
+                    td: ({children}) => (
+                      <td className="px-4 py-3 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 border border-gray-200 dark:border-gray-700">
+                        {children}
+                      </td>
+                    ),
                     h1: ({children}) => (
                       <div className="mb-8">
                         <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-3">{children}</h1>
