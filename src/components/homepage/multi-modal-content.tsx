@@ -383,10 +383,7 @@ export function MultiModalContent() {
                   Your browser does not support the video tag.
                 </video>
               </div>
-              <div className="flex items-center justify-end text-sm text-muted-foreground">
-  <span>Duration: {selectedVideo.duration}</span>
-</div>
-            </div>
+                          </div>
           )}
         </DialogContent>
       </Dialog>
