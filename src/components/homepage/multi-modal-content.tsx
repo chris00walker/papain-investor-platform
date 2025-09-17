@@ -262,7 +262,21 @@ export function MultiModalContent() {
                       <div className="flex items-center justify-between">
                         <div>
                           <h4 className="font-medium text-sm">{file.title}</h4>
-                          <p className="text-xs opacity-75 capitalize">{file.venture} venture • {file.duration}</p>
+                          <p className="text-xs opacity-75"><span className="font-semibold">Duration</span> • <span id={`duration-${file.id}`}>{file.duration}</span>
+  <video
+    src={file.filePath}
+    style={{ display: 'none' }}
+    preload="metadata"
+    onLoadedMetadata={e => {
+      const duration = (e.target as HTMLVideoElement).duration;
+      const mins = Math.floor(duration / 60);
+      const secs = Math.round(duration % 60).toString().padStart(2, '0');
+      const formatted = `${mins}:${secs}`;
+      const span = document.getElementById(`duration-${file.id}`);
+      if (span) span.textContent = formatted;
+    }}
+  />
+</p>
                         </div>
                         <Button
                           size="sm"
@@ -338,17 +352,17 @@ export function MultiModalContent() {
 
       {/* Video Player Modal */}
       <Dialog open={isVideoModalOpen} onOpenChange={setIsVideoModalOpen}>
-        <DialogContent className="max-w-4xl w-full">
+        <DialogContent className="max-w-4xl w-full bg-white/80 dark:bg-white/20 backdrop-blur-md border border-white/50 dark:border-white/30 shadow-2xl">
           <DialogHeader>
             <DialogTitle className="flex items-center justify-between">
-              <span>{selectedVideo?.title}</span>
+              <span className="text-white">{selectedVideo?.title}</span>
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={closeVideoModal}
-                className="text-white hover:bg-white/10"
+                className="text-white hover:bg-white/10 rounded-full p-2"
               >
-                <IconX className="h-4 w-4 text-white" />
+                <IconX className="h-5 w-5 text-white" />
               </Button>
             </DialogTitle>
           </DialogHeader>
@@ -369,14 +383,9 @@ export function MultiModalContent() {
                   Your browser does not support the video tag.
                 </video>
               </div>
-              <div className="flex items-center justify-between text-sm text-muted-foreground">
-                <div className="flex items-center gap-2">
-                  <Badge className={getVentureColor(selectedVideo.venture) + ' text-white'}>
-                    {selectedVideo.venture} venture
-                  </Badge>
-                  <span>Duration: {selectedVideo.duration}</span>
-                </div>
-              </div>
+              <div className="flex items-center justify-end text-sm text-muted-foreground">
+  <span>Duration: {selectedVideo.duration}</span>
+</div>
             </div>
           )}
         </DialogContent>
@@ -384,26 +393,26 @@ export function MultiModalContent() {
 
       {/* Audio Player Modal */}
       <Dialog open={isAudioModalOpen} onOpenChange={setIsAudioModalOpen}>
-        <DialogContent className="max-w-2xl w-full">
+        <DialogContent className="max-w-4xl w-full bg-white/80 dark:bg-white/20 backdrop-blur-md border border-white/50 dark:border-white/30 shadow-2xl">
           <DialogHeader>
             <DialogTitle className="flex items-center justify-between">
-              <span>{selectedAudio?.title}</span>
+              <span className="text-white">{selectedAudio?.title}</span>
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={closeAudioModal}
-                className="text-white hover:bg-white/10"
+                className="text-white hover:bg-white/10 rounded-full p-2"
               >
-                <IconX className="h-4 w-4 text-white" />
+                <IconX className="h-5 w-5 text-white" />
               </Button>
             </DialogTitle>
           </DialogHeader>
           {selectedAudio && (
             <div className="space-y-4">
-              <div className="bg-gradient-to-r from-secondary/20 to-accent/20 rounded-lg p-8">
+              <div className="bg-black rounded-lg p-8">
                 <div className="flex items-center justify-center mb-4">
                   <div className={`p-4 rounded-full ${getVentureColor(selectedAudio.venture)}`}>
-                    <IconHeadphones className="h-12 w-12" />
+                    <IconHeadphones className="h-12 w-12 text-white" />
                   </div>
                 </div>
                 <audio
@@ -420,15 +429,7 @@ export function MultiModalContent() {
                   Your browser does not support the audio tag.
                 </audio>
               </div>
-              <div className="flex items-center justify-between text-sm text-muted-foreground">
-                <div className="flex items-center gap-2">
-                  <Badge className={getVentureColor(selectedAudio.venture) + ' text-white'}>
-                    {selectedAudio.venture} venture
-                  </Badge>
-                  <span>Duration: {selectedAudio.duration}</span>
-                </div>
-              </div>
-            </div>
+                          </div>
           )}
         </DialogContent>
       </Dialog>
