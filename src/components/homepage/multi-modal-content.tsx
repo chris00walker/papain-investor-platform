@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
 import { IconPlayerPlay, IconHeadphones, IconFileText, IconChevronDown, IconChevronRight, IconX } from "@tabler/icons-react"
 import { useState } from "react"
 import ReactMarkdown from 'react-markdown'
@@ -365,6 +365,9 @@ export function MultiModalContent() {
                 <IconX className="h-5 w-5 text-white" />
               </Button>
             </DialogTitle>
+            <DialogDescription className="text-white/80">
+              Watch the video presentation for {selectedVideo?.venture} venture
+            </DialogDescription>
           </DialogHeader>
           {selectedVideo && (
             <div className="space-y-4">
@@ -403,6 +406,9 @@ export function MultiModalContent() {
                 <IconX className="h-5 w-5 text-white" />
               </Button>
             </DialogTitle>
+            <DialogDescription className="text-white/80">
+              Listen to the executive podcast for {selectedAudio?.venture} venture
+            </DialogDescription>
           </DialogHeader>
           {selectedAudio && (
             <div className="space-y-4">
@@ -433,45 +439,49 @@ export function MultiModalContent() {
 
       {/* Executive Summary Modal */}
       <Dialog open={isSummaryModalOpen} onOpenChange={setIsSummaryModalOpen}>
-        <DialogContent className="max-w-6xl w-full max-h-[90vh] overflow-hidden bg-white dark:bg-gray-900 shadow-2xl border-0">
-          <div className="bg-gradient-to-r from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 p-6 border-b border-gray-200 dark:border-gray-700">
+        <DialogContent className="max-w-6xl w-[100vw] sm:w-full max-h-[100vh] sm:max-h-[90vh] overflow-hidden bg-white dark:bg-gray-900 shadow-2xl border-0 m-0 sm:mx-auto">
+          <div className="bg-gradient-to-r from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 p-3 sm:p-6 border-b border-gray-200 dark:border-gray-700">
             <DialogHeader>
-              <DialogTitle className="flex items-center justify-between">
-                <div className="flex items-center gap-4">
-                  <div className={`p-3 rounded-xl shadow-md ${selectedSummary ? getVentureColor(selectedSummary.venture) + ' text-white' : 'bg-gray-100 dark:bg-gray-800 text-white'}`}>
-                    <IconFileText className="h-6 w-6" />
+              <DialogTitle className="flex items-start sm:items-center justify-between gap-2">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 flex-1 min-w-0">
+                  <div className={`p-2 sm:p-3 rounded-xl shadow-md flex-shrink-0 ${selectedSummary ? getVentureColor(selectedSummary.venture) + ' text-white' : 'bg-gray-100 dark:bg-gray-800 text-white'}`}>
+                    <IconFileText className="h-5 w-5 sm:h-6 sm:w-6" />
                   </div>
-                  <div>
-                    <h2 className="text-2xl font-bold text-gray-900 dark:text-white">{selectedSummary?.title}</h2>
-                    <p className="text-base text-gray-600 dark:text-gray-300 mt-1">{selectedSummary?.description}</p>
+                  <div className="min-w-0 flex-1">
+                    <h2 className="text-lg sm:text-2xl font-bold text-gray-900 dark:text-white break-words">{selectedSummary?.title}</h2>
                   </div>
                 </div>
                 <Button
                   variant="ghost"
                   size="sm"
                   onClick={closeSummaryModal}
-                  className="text-white hover:bg-white/10 rounded-full p-2"
+                  className="text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full p-2 flex-shrink-0"
                 >
-                  <IconX className="h-5 w-5 text-white" />
+                  <IconX className="h-4 w-4 sm:h-5 sm:w-5" />
                 </Button>
               </DialogTitle>
+              <DialogDescription className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mt-1 break-words">
+                {selectedSummary?.description}
+              </DialogDescription>
             </DialogHeader>
           </div>
           {selectedSummary && (
-            <div className="bg-white dark:bg-gray-900 p-6">
-              <div className="flex items-center justify-between py-4 bg-gray-50 dark:bg-gray-800 rounded-lg px-4 mb-6">
+            <div className="bg-white dark:bg-gray-900 p-2 sm:p-6 overflow-hidden">
+              <div className="flex items-center justify-between py-2 sm:py-4 bg-gray-50 dark:bg-gray-800 rounded-lg px-2 sm:px-4 mb-3 sm:mb-6">
                 <div className="flex items-center gap-4">
-                  <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{selectedSummary.readTime}</span>
+                  <span className="text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300">{selectedSummary.readTime}</span>
                 </div>
               </div>
-              <div className="overflow-y-auto max-h-[60vh] prose prose-xl max-w-none bg-white dark:bg-gray-900 p-12 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-xl">
+              <div className="overflow-y-auto max-h-[70vh] sm:max-h-[60vh] prose prose-sm sm:prose-xl max-w-none bg-white dark:bg-gray-900 p-2 sm:p-12 rounded-lg sm:rounded-2xl border border-gray-200 dark:border-gray-700 shadow-xl overflow-x-hidden">
                 <ReactMarkdown
                   remarkPlugins={[remarkGfm]}
                   components={{
                     table: ({children}) => (
-                      <table className="w-full border-collapse my-8 text-base text-left text-gray-900 dark:text-gray-100">
-                        {children}
-                      </table>
+                      <div className="overflow-x-auto my-4 sm:my-8 -mx-2 sm:mx-0">
+                        <table className="w-full min-w-[300px] sm:min-w-[600px] border-collapse text-xs sm:text-base text-left text-gray-900 dark:text-gray-100">
+                          {children}
+                        </table>
+                      </div>
                     ),
                     thead: ({children}) => (
                       <thead className="bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100">
@@ -489,65 +499,65 @@ export function MultiModalContent() {
                       </tr>
                     ),
                     th: ({children}) => (
-                      <th className="px-4 py-3 font-semibold bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 border border-gray-200 dark:border-gray-700">
+                      <th className="px-1 sm:px-4 py-1 sm:py-3 font-semibold bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 border border-gray-200 dark:border-gray-700 text-xs sm:text-sm">
                         {children}
                       </th>
                     ),
                     td: ({children}) => (
-                      <td className="px-4 py-3 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 border border-gray-200 dark:border-gray-700">
+                      <td className="px-1 sm:px-4 py-1 sm:py-3 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 border border-gray-200 dark:border-gray-700 text-xs sm:text-sm break-words max-w-[120px] sm:max-w-none">
                         {children}
                       </td>
                     ),
                     h1: ({children}) => (
-                      <div className="mb-8">
-                        <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-3">{children}</h1>
-                        <div className="w-16 h-1 bg-gradient-to-r from-primary to-secondary rounded-full mb-6"></div>
+                      <div className="mb-6 sm:mb-8">
+                        <h1 className="text-xl sm:text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2 sm:mb-3 break-words">{children}</h1>
+                        <div className="w-12 sm:w-16 h-1 bg-gradient-to-r from-primary to-secondary rounded-full mb-4 sm:mb-6"></div>
                       </div>
                     ),
                     h2: ({children}) => (
-                      <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mt-10 mb-6 pb-2 border-b border-gray-200 dark:border-gray-700">{children}</h2>
+                      <h2 className="text-lg sm:text-2xl font-bold text-gray-900 dark:text-gray-100 mt-8 sm:mt-10 mb-4 sm:mb-6 pb-2 border-b border-gray-200 dark:border-gray-700 break-words">{children}</h2>
                     ),
                     h3: ({children}) => (
-                      <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mt-8 mb-4">{children}</h3>
+                      <h3 className="text-base sm:text-xl font-semibold text-gray-900 dark:text-gray-100 mt-6 sm:mt-8 mb-3 sm:mb-4 break-words">{children}</h3>
                     ),
                     h4: ({children}) => (
-                      <h4 className="text-lg font-medium text-gray-900 dark:text-gray-100 mt-6 mb-3">{children}</h4>
+                      <h4 className="text-sm sm:text-lg font-medium text-gray-900 dark:text-gray-100 mt-4 sm:mt-6 mb-2 sm:mb-3 break-words">{children}</h4>
                     ),
                     p: ({children}) => (
-                      <p className="mb-6 text-gray-700 dark:text-gray-300 leading-relaxed text-lg tracking-wide">{children}</p>
+                      <p className="mb-4 sm:mb-6 text-gray-700 dark:text-gray-300 leading-relaxed text-sm sm:text-lg tracking-wide break-words">{children}</p>
                     ),
                     ul: ({children}) => (
-                      <ul className="mb-6 space-y-3 text-gray-700 dark:text-gray-300">{children}</ul>
+                      <ul className="mb-4 sm:mb-6 space-y-2 sm:space-y-3 text-gray-700 dark:text-gray-300">{children}</ul>
                     ),
                     ol: ({children}) => (
-                      <ol className="mb-6 space-y-3 text-gray-700 dark:text-gray-300">{children}</ol>
+                      <ol className="mb-4 sm:mb-6 space-y-2 sm:space-y-3 text-gray-700 dark:text-gray-300">{children}</ol>
                     ),
                     li: ({children}) => (
-                      <li className="flex items-start gap-3 text-gray-700 dark:text-gray-300 leading-relaxed text-lg">
-                        <span className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></span>
-                        <span>{children}</span>
+                      <li className="flex items-start gap-2 sm:gap-3 text-gray-700 dark:text-gray-300 leading-relaxed text-sm sm:text-lg break-words">
+                        <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-primary rounded-full mt-2 sm:mt-3 flex-shrink-0"></span>
+                        <span className="min-w-0 flex-1">{children}</span>
                       </li>
                     ),
                     strong: ({children}) => (
-                      <strong className="font-bold text-gray-900 dark:text-gray-100 bg-yellow-50 dark:bg-yellow-900/20 px-1 rounded">{children}</strong>
+                      <strong className="font-bold text-gray-900 dark:text-gray-100 bg-yellow-50 dark:bg-yellow-900/20 px-1 rounded break-words">{children}</strong>
                     ),
                     em: ({children}) => (
-                      <em className="italic text-primary font-medium">{children}</em>
+                      <em className="italic text-primary font-medium break-words">{children}</em>
                     ),
                     blockquote: ({children}) => (
-                      <blockquote className="border-l-4 border-primary bg-gradient-to-r from-primary/5 to-transparent pl-8 py-6 my-8 text-gray-700 dark:text-gray-300 rounded-r-xl shadow-sm">
-                        <div className="text-lg leading-relaxed">{children}</div>
+                      <blockquote className="border-l-4 border-primary bg-gradient-to-r from-primary/5 to-transparent pl-4 sm:pl-8 py-4 sm:py-6 my-6 sm:my-8 text-gray-700 dark:text-gray-300 rounded-r-xl shadow-sm">
+                        <div className="text-sm sm:text-lg leading-relaxed break-words">{children}</div>
                       </blockquote>
                     ),
                     code: ({children}) => (
-                      <code className="bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-md text-sm font-mono text-primary border">{children}</code>
+                      <code className="bg-gray-100 dark:bg-gray-800 px-2 sm:px-3 py-1 rounded-md text-xs sm:text-sm font-mono text-primary border break-all">{children}</code>
                     ),
                     pre: ({children}) => (
-                      <pre className="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl overflow-x-auto text-sm font-mono mb-8 border border-gray-200 dark:border-gray-700 shadow-inner">{children}</pre>
+                      <pre className="bg-gray-50 dark:bg-gray-800 p-3 sm:p-6 rounded-xl overflow-x-auto text-xs sm:text-sm font-mono mb-6 sm:mb-8 border border-gray-200 dark:border-gray-700 shadow-inner">{children}</pre>
                     ),
                     hr: () => (
-                      <div className="my-12 flex items-center justify-center">
-                        <div className="w-24 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
+                      <div className="my-8 sm:my-12 flex items-center justify-center">
+                        <div className="w-16 sm:w-24 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
                       </div>
                     )
                   }}

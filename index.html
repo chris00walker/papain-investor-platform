@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/icons8-papaya-48.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Development CSP only - Production uses Netlify headers -->
+    <meta id="dev-csp" http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' http://localhost:* http://127.0.0.1:*; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self' ws: wss: http://localhost:* http://127.0.0.1:*;" />
     <title>Papain Ventures</title>
   </head>
   <body>
